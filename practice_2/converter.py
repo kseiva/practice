@@ -16,4 +16,4 @@ name_number = {"January": 1, "january": 1,
 if month in name_number:
 	print 'Number of month', month, ':', name_number[month]
 else:
-	print 'Incorrect month name'
+	print 'Incorrect month name, try again.'
