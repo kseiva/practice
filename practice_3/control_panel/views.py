@@ -12,7 +12,7 @@ def home(request):
 	return render(request, 'home.html', context)
 
 def listing(request, path):
-	dir = "C:/Users/Ksysha"
+	dir = "C:/Users/Ksysha/"
 	dir_context = os.listdir(dir + path)
 	context = {'dir_name': dir + path, 'files': dir_context}
 	return render_to_response('listing.html', context)
