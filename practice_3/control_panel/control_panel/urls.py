@@ -19,4 +19,5 @@ urlpatterns = patterns('',
     # url(r'^admin/', include(admin.site.urls)),
 
       url(r'^$', 'control_panel.pages.views.home'),
+      url(r'^log/(?P<path>.*)$', 'control_panel.pages.views.listing'),
 )

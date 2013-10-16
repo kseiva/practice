@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset=utf-8 />
+   <title>Index of home directory </title>
+</head>
+<body>
+   <h1>Listing directory {{dir_name}}</h1>
+   <ul>
+   {% for item in files %}
+   <li>{{ item }}
+   {% endfor %}
+   </ul>
+</body>
+</html>
