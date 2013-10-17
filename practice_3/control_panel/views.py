@@ -12,8 +12,17 @@ def home(request):
 	return render(request, 'home.html', context)
 
 def listing(request, path):
-	dir = "C:/Users/Ksysha/"
-	dir_context = os.listdir(dir + path)
-	context = {'dir_name': dir + path, 'files': dir_context}
+	home_dir = "C:/Users/Ksysha/"
+	dir_context = os.listdir(home_dir + path)
+	file = []
+	dir = []
+	for d in dir_context:
+		full_path = home_dir + path + "/" + d
+		if (os.path.isfile(full_path)):
+			file.append(d)
+		elif (os.path.isdir(full_path)):
+			dir.append(d)
+	
+	context = {'dir_name': home_dir + path, 'files': file, 'dirs': dir}
 	return render_to_response('listing.html', context)
 
