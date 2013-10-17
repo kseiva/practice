@@ -17,11 +17,15 @@ def listing(request, path):
 	file = []
 	dir = []
 	for d in dir_context:
-		full_path = home_dir + path + "/" + d
+		full_path = os.path.join(home_dir + path + "/", d)
+		size = os.path.getsize(full_path)
+		time = datetime.datetime.fromtimestamp(os.path.getmtime(full_path))
+		tbl = {'name': d, 'size_file': size, 'time_file': time}
+
 		if (os.path.isfile(full_path)):
-			file.append(d)
+			file.append(tbl)
 		elif (os.path.isdir(full_path)):
-			dir.append(d)
+			dir.append(tbl)
 	
 	context = {'dir_name': home_dir + path, 'files': file, 'dirs': dir}
 	return render_to_response('listing.html', context)

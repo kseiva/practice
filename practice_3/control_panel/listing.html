@@ -6,13 +6,25 @@
 </head>
 <body>
    <h1>Listing directory {{dir_name}}</h1>
-   <ul type="circle">
+   <table border="1">
+   <tr>
+     <th>Name file or directory</th>
+     <th>File size in bytes</th>
+     <th>Last modification date</th>
    {% for item in files %}
-   <li>{{ item }}</li>
+   <tr>
+     <td>{{ item.name }}</td>
+     <td>{{ item.size_file }}</td>
+     <td>{{ item.time_file }}</td>
+   </tr>
    {% endfor %}
    {% for item in dirs %}
-   <li><a href="{{ item }}">{{ item }}</a></li>
+   <tr>
+     <td><a href="{{ item.name }}">{{ item.name }}</a></td>
+     <td>{{ item.size_file }}</td>
+     <td>{{ item.time_file }}</td>
+   </tr>
    {% endfor %}
-   </ul>
+   </table>
 </body>
 </html>
