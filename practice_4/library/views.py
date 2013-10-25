@@ -16,3 +16,7 @@ def books_info(request, book_id):
 	books = Book.objects.get(id=book_id)
 	return render_to_response('book_list.html', {'books': books},)
 
+def authors_card(request):
+	authors = Author.objects.all()
+	return render_to_response('author_card.html', {'authors': authors},)
+

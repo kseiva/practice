@@ -3,7 +3,6 @@
 from django.conf.urls import patterns, include, url
 from control_panel.pages.views import home
 from control_panel.library.views import book
-from control_panel.library.views import book_list
 
 # Uncomment the next two lines to enable the admin:
 # from django.contrib import admin
@@ -25,6 +24,7 @@ urlpatterns = patterns('',
       url(r'^library/$', 'control_panel.library.views.book'),
       url(r'^library/books/$', 'control_panel.library.views.book'),
       url(r'^library/books/(?P<book_id>\d+)$', 'control_panel.library.views.books_info'),
+      url(r'^library/authors/$', 'control_panel.library.views.authors_card'),
       url(r'^library/authors/(?P<author_id>\d+)$', 'control_panel.library.views.authors_list'),
 
 )
