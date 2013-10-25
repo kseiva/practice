@@ -24,5 +24,7 @@ urlpatterns = patterns('',
       url(r'^log/(?P<path>.*)$', 'control_panel.pages.views.listing'),
       url(r'^library/$', 'control_panel.library.views.book'),
       url(r'^library/books/$', 'control_panel.library.views.book'),
-      url(r'^books/(?P<book>\d+)/$', 'control_panel.library.views.book_list', name='book_list')
+      url(r'^library/books/(?P<book_id>\d+)$', 'control_panel.library.views.books_info'),
+      url(r'^library/authors/(?P<author_id>\d+)$', 'control_panel.library.views.authors_list'),
+
 )

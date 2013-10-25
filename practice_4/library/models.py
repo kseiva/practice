@@ -12,6 +12,9 @@ class Author(models.Model):
 
 	def __unicode__(self):
 		return u'%s %s' % (self.first_name, self.last_name)
+	
+	def get_absolute_url(self):
+		return reverse('control_panel.library.views.authors_list', args=[str(self.id)])
 
 class Publisher(models.Model):
 	title = models.CharField(max_length=32)
@@ -21,7 +24,7 @@ class Publisher(models.Model):
 	website = models.URLField()
 
 	def __unicode__(self):
-		return self.title
+		return u'%s (%s, %s)' % (self.title, self.city, self.country)
 
 class Book(models.Model):
 	title = models.CharField(max_length=128)
@@ -33,4 +36,4 @@ class Book(models.Model):
 		return self.title
 
 	def get_absolute_url(self):
-		return reverse('control_panel.library.views.book_list', args=[str(self.id)])
+		return reverse('control_panel.library.views.books_info', args=[str(self.id)])
