@@ -38,6 +38,7 @@ class Book(models.Model):
     authors = models.ManyToManyField(Author)
     publisher = models.ForeignKey(Publisher)
     publication_date = models.DateField(auto_now_add=True)
+    description = models.TextField(null=False, blank=False, default="")
 
     def __unicode__(self):
         return self.title
