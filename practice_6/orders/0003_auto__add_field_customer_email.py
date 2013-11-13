@@ -13,11 +13,9 @@ class Migration(SchemaMigration):
                       self.gf('django.db.models.fields.EmailField')(max_length=75, null=True),
                       keep_default=False)
 
-
     def backwards(self, orm):
         # Deleting field 'Customer.email'
         db.delete_column(u'orders_customer', 'email')
-
 
     models = {
         u'library.author': {

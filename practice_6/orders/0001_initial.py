@@ -25,14 +25,12 @@ class Migration(SchemaMigration):
         ))
         db.send_create_signal(u'orders', ['Customer'])
 
-
     def backwards(self, orm):
         # Deleting model 'Order'
         db.delete_table(u'orders_order')
 
         # Deleting model 'Customer'
         db.delete_table(u'orders_customer')
-
 
     models = {
         u'library.author': {
