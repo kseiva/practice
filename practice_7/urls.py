@@ -20,8 +20,6 @@ urlpatterns = patterns(
     # Uncomment the admin/doc line below to enable admin documentation:
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 
-    # Uncomment the next line to enable the admin:
-    # url(r'^admin/', include(admin.site.urls)),
     url(r'^$', 'control_panel.pages.views.home'),
     url(r'^log/(?P<path>.*)$', 'control_panel.pages.views.listing'),
     url(r'^library/$', BookList.as_view()),
@@ -32,5 +30,7 @@ urlpatterns = patterns(
     url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT}),
     url(r'^orders/$', CustomersList.as_view(), name='order_list.html'),
     url(r'^orders_list/(?P<pk>\d+)/$', CustomerDetails.as_view(), name='customer.html'),
+    url(r'^registration/$', 'control_panel.registration.views.registrate'),
+    url(r'^login/$', 'control_panel.registration.views.log_in'),
     url(r'^admin/', include(admin.site.urls)),
 )
